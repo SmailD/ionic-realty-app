@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Survey
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+      
+
+<ion-content>
+  <form (ngSubmit)="logForm()">
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          Before we begin, can you confirm your name?
+        </ion-list-header>
+        <ion-item>
+          <ion-input [(ngModel)]="survey.name" name="name" placeholder="Name"></ion-input>
+        </ion-item>
+      </ion-list>  
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card><ion-card-content>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="survey.service" name="service">
+        <ion-list-header>
+            Of the following options, how would you rate your interactions with the Preferred Repair team?
+        </ion-list-header>  
+        <ion-item>
+          <ion-label>Excellent</ion-label>
+          <ion-radio value="excellent"></ion-radio>
+        </ion-item> 
+        <ion-item>
+          <ion-label>No Opinion</ion-label>
+          <ion-radio value="no opinion"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Need Improvement</ion-label>
+          <ion-radio value="need improvement"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-card-content></ion-card>
+
+  <ion-card><ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          Of the following options, how satisfied are you with Acme's Preferred Repair service?
+        </ion-list-header>  
+        <ion-item>
+          <ion-select [(ngModel)]="survey.satisfaction" name="satisfaction" style="max-width: 100% !important;">
+            <ion-select-option selected value="satisfied">Satisfied</ion-select-option>
+            <ion-select-option value="somewhat satisfied">Somewhat Satisfied</ion-select-option>
+            <ion-select-option value="no opinion">No Opinion</ion-select-option>
+            <ion-select-option value="somewhat dissatisfied">Somewhat Dissatisfied</ion-select-option>
+            <ion-select-option value="unsatisfied">Unsatisfied</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content></ion-card>
+
+  <ion-card><ion-card-content>        
+    <ion-list>
+      <ion-list-header>
+        Do you have any other comments you'd like to share with us?
+      </ion-list-header>
+      <ion-item>
+        <ion-textarea [(ngModel)]="survey.comments" name="comments"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" fill="outline" type="submit">Submit</ion-button>
+  </ion-card-content></ion-card>
+  </form>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Favorites
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+      
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let property of properties">
+          <ion-item (click)="itemTapped($event, property)">
+            <ion-thumbnail slot="start">
+              <img src="{{property.thumb}}"/>
+            </ion-thumbnail>
+            <ion-label>
+                <h2>{{property.title}}</h2>
+                <p>{{property.city}}, {{property.state}} ∙ {{property.price}}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteItem($event, property)">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+</ion-content>

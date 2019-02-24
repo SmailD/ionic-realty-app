@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Properties
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+      
+
+<ion-content>
+      <ion-card *ngFor="let property of properties" (click)="itemTapped($event,property)">
+        <img class="image-height" src="{{property.thumb}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{property.title}}
+          </ion-card-title>
+          <p>{{property.city}}, {{property.state}} ∙ {{property.price}}</p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
+
+<ion-card>

@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Property
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+      
+
+<ion-content class="cards-bg">
+    <div *ngIf="property" class="selection">
+        <ion-card>     
+          <img src="{{property.pic}}"/>
+      
+          <ion-card-content>
+            <ion-card-title>
+              Nine Inch Nails Live
+            </ion-card-title>
+            <p>
+              The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+            </p>
+          </ion-card-content>
+
+          <ion-list>
+            <ion-item>               
+                <ion-icon item-left name="moon"></ion-icon>
+                <h6>Bedrooms</h6>
+                <ion-label item-right text-right>{{property.beds}}</ion-label>    
+            </ion-item>
+            <ion-item>
+                <ion-icon item-left name="home"></ion-icon>
+                <h6>Bathrooms</h6>
+                <ion-label item-right text-right>{{property.baths}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon item-left name="pricetag"></ion-icon>
+                <h6>Asking Price</h6>
+                <ion-label item-right text-right>{{property.price}} £</ion-label>
+            </ion-item>
+            <ion-item (click)="showBroker($event, property.broker)">
+                <ion-avatar slot="start">
+                    <img src="{{property.broker.picture}}"/>
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{property.broker.firstName}} {{property.broker.lastName}}</h2>
+                    <p>{{property.broker.title}}</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+        <!-- <ion-button (click)="favorite($event, property)" color="primary" expand="block" fill="outline">
+            <ion-icon slot="start" name="star"></ion-icon>
+            Favorite
+        </ion-button> -->
+        <ion-button (click)="like($event, property)" expand="block" fill="outline">
+            <ion-icon slot="start" name="heart"></ion-icon>
+            Likes ({{property.likes}})
+        </ion-button>
+        <ion-button (click)="share($event, property)" expand="block" fill="outline">
+            <ion-icon slot="start" name="share"></ion-icon>
+            Share
+        </ion-button>
+      
+      </ion-card>
+  <!-- <div *ngIf="property" class="selection">
+      <ion-card>
+            <img src="{{property.pic}}"/>
+            <ion-card-content>
+              <h2 class="card-title">
+                  {{property.title}}
+              </h2>
+              <p>
+                  {{property.description}}
+              </p>
+            </ion-card-content>
+
+
+          <ion-list>
+              <ion-item>
+                  <ion-icon item-left name="moon"></ion-icon>
+                  <h3>Bedrooms</h3>
+                  <ion-note item-right>{{property.beds}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <ion-icon item-left name="flask"></ion-icon>
+                  <h3>Bathrooms</h3>
+                  <ion-note item-right>{{property.baths}}</ion-note>
+              </ion-item>
+              <ion-item>
+                  <ion-icon item-left name="pricetag"></ion-icon>
+                  <h3>Asking Price</h3>
+                  <ion-note item-right>{{property.price}}</ion-note>
+              </ion-item>
+              <button ion-item (click)="showBroker($event, property.broker)">
+                  <ion-avatar item-left>
+                      <img src="{{property.broker.picture}}"/>
+                  </ion-avatar>
+                  <h2>{{property.broker.name}}</h2>
+                  <p>{{property.broker.title}}</p>
+              </button>
+          </ion-list> -->
+          <!-- <ion-row no-padding>
+            <ion-col>
+                <button ion-button outline item-end icon-start (click)="favorite($event, property)">
+                    <ion-icon name="star"></ion-icon>
+                    Favorite
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button outline item-end icon-start (click)="like($event, property)">
+                    <ion-icon name="like"></ion-icon>
+                    Like
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button outline item-end icon-start (click)="share($event, property)">
+                    <ion-icon name="share"></ion-icon>
+                    Share
+                </button>
+            </ion-col>
+          </ion-row> -->
+      <!-- </ion-card> -->
+  </div>
+</ion-content>
